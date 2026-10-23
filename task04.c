@@ -1,20 +1,18 @@
 #include <stdio.h>
 int main(void){
-    int n, x, digit, sum = 0;
+    int n, x, digit, sum;
     printf("Enter a non-negative number: ");
-    if (scanf("%d", &n) != 1 || n < 0) {
-        return 0;
-    }
-    x = n;
-    while (x > 0) {
-        digit = x % 10;
-        sum += digit * digit * digit;
-        x /= 10;
-    }
-    if (sum == n) {
-        printf("%d is an Armstrong number (sum of cubes)\n", n);
-    } else {
-        printf("%d is not an Armstrong number (sum of cubes)\n", n);
+    while (scanf("%d", &n) == 1 && n >= 0) {
+        x = n;
+        sum = 0;
+        while (x > 0) {
+            digit = x % 10;
+            sum += digit * digit * digit;
+            x /= 10;
+        }
+        printf("Sum of cubes = %d\n", sum);
+        printf("Armstrong (1=yes, 0=no): %d\n", sum == n);
+        printf("Enter a non-negative number: ");
     }
     return 0;
 }
